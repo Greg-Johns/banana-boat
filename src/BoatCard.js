@@ -9,10 +9,8 @@ const s = {
     fontSize: '12px',
     backgroundColor: '#FFFEDA',
     padding: '6px',
-    // display: 'flex',
-    // flexDirection: 'column',
     borderRadius: `2px`,
-    // justifyContent: 'space-evenly',
+    zIndex: '100'
   },
   optsDisabled: {
     fontSize: '12px',
@@ -23,30 +21,23 @@ const s = {
   },
   Boat: {
     display: `inline-block`,
-    border: `4px solid ${disabledBlue}`,
-    width: `120px`,
-    margin: `6px`,
+    textAlign: `left`,
+    backgroundColor: `${disabledBlue}`,
+    border: `8px solid ${disabledBlue}`,
+    width: `140px`,
+    margin: `10px`,
     borderRadius: `6px`,
-    filter: 'drop-shadow(2px 2px 2px #31788E)'
-  },
-  h6: {
-    fontSize: '14px',
-    textAlign: 'left',
-    margin: 0,
-    paddingLeft: '4px',
-    lineHeight: '1.6',
-    color: '#F3F825',
-    backgroundColor: `${disabledBlue}`
+    filter: 'drop-shadow(-2px 2px 2px #31788E)'
   },
   label: {
     color: '#666',
     paddingRight: '10px',
     display: 'inline-block',
-    width: '54px',
+    width: '60px',
     textAlign: 'right',
-    // display: 'block',
-    fontSize: '11px',
-    margin: '6px 0'
+    fontFamily: 'sans-serif',
+    fontSize: '14px',
+    margin: '8px 0'
   }
 }
 
@@ -73,18 +64,14 @@ class BoatCard extends Component {
 
     return (
       <div style={s.Boat}>
-        <h6 style={s.h6}>
-          <input
-            style={(BoatNum === 0) ? {display: "none"} : {display: "inline"}}
-            type="checkbox"
-          />
-          Boat {BoatNum + 1}
-        </h6>
+        <input
+          style={(BoatNum === 0) ? {display: "none"} : {display: "inline"}}
+          type="checkbox"
+        />
+        <h6>Boat {BoatNum + 1}</h6>
         <div style={s.optsEnabled}>
           <div>
-            <label style={s.label}>
-              People
-            </label>
+            <label style={s.label}>People:</label>
             <select
               name="peopleOps"
             >
@@ -92,9 +79,7 @@ class BoatCard extends Component {
             </select>
           </div>
           <div>
-            <label style={s.label}>
-              Monkeys
-            </label>
+            <label style={s.label}>Monkeys:</label>
             <select
               name="monkeyOps"
             >
