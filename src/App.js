@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import BoatCard from './BoatCard';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // Array for number of BoatCards we want
+      boatCount: [0,1,2,3]
+    };
+  }
+
   render() {
+    const boatCards = this.state.boatCount.map(num =>
+      <BoatCard key={num} num={num} />
+    );
+
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Banana Boat</h1>
+          <h2>🍌 Rentals 🍌</h2>
+          <img className="header-pic" src="./assets/boat.png" />
         </header>
+        <div className="content">
+          {boatCards}
+          <p>
+            Select the number of boats and passengers for your party.
+          </p>
+          <button>Rent Now</button>
+        </div>
       </div>
     );
   }
