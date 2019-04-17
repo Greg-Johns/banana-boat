@@ -18,18 +18,22 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
+          <div className='user'>Jane ▼</div>
           <h1>Banana Boat</h1>
-          <h2>🍌 Rentals 🍌</h2>
-          <img className="header-pic" src="./assets/boat.png" />
+          <h2>- Rentals -</h2>
+          <img alt="banana" className="header-pic" src="./assets/banana.png" />
         </header>
         <div className="content">
+          <p>Select the number of boats and passengers for your party.</p>
           {boatCards}
-          <p>
-            Select the number of boats and passengers for your party.
-          </p>
+          <br />
           <button>Rent Now</button>
         </div>
+        <footer>
+          <small> Brought to you by: </small>
+          <p><span role="img" aria-label="banana">🍌</span> Bananas <span role="img" aria-label="banana">🍌</span></p>
+        </footer>
       </div>
     );
   }

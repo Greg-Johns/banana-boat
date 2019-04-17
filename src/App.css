@@ -1,37 +1,33 @@
 body {
-  background-color: #B2EDFF;
+  background-color: #fff;
+  background: -moz-linear-gradient(top, #B2EDFF 0%, #F1FFC8 30%); /* FF3.6-15 */
+  background: linear-gradient(to bottom, #B2EDFF 0%,#F1FFC8 30%);
   color: white;
   font-family: 'Titan One', cursive;
-}
-
-.content {
-  height: 100vh;
-  background: -moz-linear-gradient(top, #B2EDFF 0%, #2989d8 100%); /* FF3.6-15 */
-  background: linear-gradient(to bottom, #B2EDFF 0%,#2989d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.content {
+  margin: 0;
+  width: 110vw;
+  height: 60vh;
+  padding-top: 40px;
+  background: -moz-linear-gradient(top, #B2EDFF 0, #2989d8 100%); /* FF3.6-15 */
+  background: linear-gradient(to bottom, #B2EDFF 0,#2989d8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-.App-header {
-  /* background-color: #fff; */
-  background: -moz-linear-gradient(top, #B2EDFF 0%, #F1FFC8 100%); /* FF3.6-15 */
-  background: linear-gradient(to bottom, #B2EDFF 0%,#F1FFC8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  min-height: 20vh;
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #85DF2B;
-  margin-bottom: 40px;
+  background-image: url('./assets/leaves.png');
+  background-repeat: no-repeat;
 }
 
 .header-pic {
@@ -40,10 +36,19 @@ body {
 
 header::after {
   content: " ";
-  width: 100%;
+  width: 110%;
   height: 20px;
   background-image: url('./assets/wave.png');
-  animation: animatedBackground 100s linear infinite;
+  animation: animatedBackground 80s linear infinite;
+}
+.user {
+  color: #333;
+  font-size: 14px;
+  width: 100%;
+  padding-right: 20px;
+  text-align: right;
+  margin: 10px;
+  margin-bottom: -20px;
 }
 
 @keyframes animatedBackground {
@@ -52,22 +57,88 @@ header::after {
 }
 
 h1 {
-  font-size: 62px;
+  width: 100%;
+  font-size: 68px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  text-shadow: -4px 6px 8px #ccc;
+  text-shadow: -4px 6px 8px #478CA1;
 }
 
 h2 {
+  font-size: 32px;
   color: #5CD1F6;
-  margin-top: -40px;
-  margin-bottom: -40px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #478CA1;
+  margin-top: -20px;
+  margin-bottom: -6px;
+}
+
+h6:first-of-type {
+  margin-bottom: 10px;
+}
+
+h6 {
+  display: inline-block;
+  font-size: 18px;
+  text-align: left;
+  margin: 0 8px;
+  line-height: 1;
+  font-family: 'helvetica';
+  color: #fff
+},
+
+input {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 24px;
+}
+
+small {
+  font-size: 12px;
+  margin: 10px 0;
 }
 
 button {
   color: #FDF415;
   background-color: #85df2b;
-  padding: 8px;
+  padding: 14px 28px;
+  font-size: 28px;
+  font-family: 'Titan One', cursive;
+  text-shadow: -4px 4px 6px #5D9C1D;
   border: 0;
-  margin: 10px;
+  margin: 24px;
+  border-radius: 6px;
+  -moz-box-shadow:    -6px 6px 6px #478CA1;
+  -webkit-box-shadow: -6px 6px 6px #478CA1;
+  box-shadow:         -6px 6px 6px #478CA1;
+}
+
+footer::before {
+  position: absolute;
+  content: " ";
+  display: inline-block;
+  opacity: .8;
+  right: 0;
+  bottom: 86px;
+  width: 300px;
+  height: 200px;
+  background-image: url('./assets/octopus.png');
+  background-repeat: no-repeat;
+}
+
+footer {
+  font-size: 18px;
+  color: #B2EDFF;
+  padding: 24px 0;
+  background-color: #3A4C61;
+  height: 72px;
+  width: 110%;
+  position: sticky;
+}
+
+footer p {
+  margin: 0;
+  font-size: 28px;
 }
