@@ -20,14 +20,15 @@ class App extends Component {
       <div className="App">
         <header>
           <div className='user'>Jane ▼</div>
+          <h2>- Bob's -</h2>
           <h1>Banana Boat</h1>
           <h2>- Rentals -</h2>
           <img alt="banana" className="header-pic" src="./assets/banana.png" />
         </header>
         <div className="content">
-          <p>Select the number of boats and passengers for your party.</p>
+          <p>Welcome back Jane</p>
           {boatCards}
-          <br />
+          <p>Select the number of boats and passengers for your party.</p>
           <button>Rent Now</button>
         </div>
         <footer>

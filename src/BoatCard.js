@@ -27,7 +27,7 @@ const s = {
     width: `140px`,
     margin: `10px`,
     borderRadius: `6px`,
-    filter: 'drop-shadow(2px 2px 2px #31788E)'
+    filter: 'drop-shadow(-2px 2px 2px #31788E)'
   },
   label: {
     color: '#666',
