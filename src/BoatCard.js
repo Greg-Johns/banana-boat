@@ -35,7 +35,7 @@ const s = {
     display: 'inline-block',
     width: '60px',
     textAlign: 'right',
-    fontFamily: 'helvetica',
+    fontFamily: 'sans-serif',
     fontSize: '14px',
     margin: '8px 0'
   }
