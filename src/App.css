@@ -25,6 +25,7 @@ header {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  width: 110vw;
   color: #85DF2B;
   background-image: url('./assets/leaves.png');
   background-repeat: no-repeat;
@@ -43,13 +44,24 @@ header::after {
 }
 
 .user {
-  color: #333;
-  font-size: 14px;
-  width: 100%;
-  padding-right: 20px;
+  width: 76%;
   text-align: right;
   margin: 10px;
   margin-bottom: -20px;
+}
+
+.user span {
+  font-family: sans-serif;
+  color: #333;
+  font-size: 14px;
+  padding: 4px 14px;
+  border-radius: 12px;
+  background-color: #85DF2B;
+}
+
+.user span:hover {
+  color: #333;
+  background-color: #33C102;
 }
 
 @keyframes animatedBackground {

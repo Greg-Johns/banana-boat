@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Subscribe } from 'unstated';
+import BoatsContainer from './BoatsContainer';
 
 
 // Styles
@@ -13,13 +15,9 @@ const s = {
     zIndex: '100'
   },
   optsDisabled: {
-    fontSize: '12px',
     backgroundColor: `${disabledBlue}`,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly'
   },
-  Boat: {
+  boatEnabled: {
     display: `inline-block`,
     textAlign: `left`,
     backgroundColor: `${disabledBlue}`,
@@ -28,6 +26,17 @@ const s = {
     margin: `10px`,
     borderRadius: `6px`,
     filter: 'drop-shadow(-2px 2px 2px #31788E)'
+  },
+  boatDisabled: {
+    display: `inline-block`,
+    textAlign: `left`,
+    backgroundColor: `${disabledBlue}`,
+    border: `8px solid ${disabledBlue}`,
+    width: `140px`,
+    margin: `10px`,
+    borderRadius: `6px`,
+    borderRadius: `8px`,
+    filter: 'drop-shadow(-1px 1px 1px #31788E)'
   },
   label: {
     color: '#666',
@@ -51,6 +60,13 @@ class BoatCard extends Component {
     };
   }
 
+  componentWillMount() {
+    if (localStorage.getItem('boats')) {
+      let fromStorage = localStorage.getItem('boats');
+      this.setState({boats: fromStorage});
+    }
+  }
+
   render(props) {
     // Options helper functions
     const peopleValues = this.state.peopleRange.map((num) =>
@@ -60,34 +76,56 @@ class BoatCard extends Component {
       <option key={num} value={num}>{num}</option>
     );
 
-    let BoatNum = this.props.num;
+    let boatNum = this.props.num;
 
     return (
-      <div style={s.Boat}>
-        <input
-          style={(BoatNum === 0) ? {display: "none"} : {display: "inline"}}
-          type="checkbox"
-        />
-        <h6>Boat {BoatNum + 1}</h6>
-        <div style={s.optsEnabled}>
-          <div>
-            <label style={s.label}>People:</label>
-            <select
-              name="peopleOps"
+      <Subscribe to={[BoatsContainer]}>
+        {counter => (
+          <div style={counter.state.boats[boatNum].enabled
+          ? s.boatEnabled
+          : s.boatDisabled}
+        >
+            <input
+              style={(boatNum === 0) ? {display: "none"} : {display: "inline"}}
+              type="checkbox"
+              checked={counter.state.boats[boatNum].enabled}
+              onChange={() =>
+                counter.state.boats[boatNum].enabled
+                ? counter.dissableBoats(boatNum)
+                : counter.enableBoats(boatNum)
+              } />
+            <h6>Boat {boatNum + 1}</h6>
+            <div style={
+              counter.state.boats[boatNum].enabled
+              ? s.optsEnabled
+              : s.optsDisabled}
             >
-              {peopleValues}
-            </select>
+              <div>
+                <label style={s.label}>People:</label>
+                <select
+                  disabled={!counter.state.boats[boatNum].enabled}
+                  name="peopleOps"
+                  value={counter.state.boats[boatNum].peopleCount}
+                  onChange={(e) => counter.setPeopleCount(boatNum, e.target.value)}
+                >
+                  {peopleValues}
+                </select>
+              </div>
+              <div>
+                <label style={s.label}>Monkeys:</label>
+                <select
+                  disabled={!counter.state.boats[boatNum].enabled}
+                  name="monkeyOps"
+                  value={counter.state.boats[boatNum].monkeyCount}
+                  onChange={(e) => counter.setMonkeyCount(boatNum, e.target.value)}
+                >
+                  {monkeyValues}
+                </select>
+              </div>
+            </div>
           </div>
-          <div>
-            <label style={s.label}>Monkeys:</label>
-            <select
-              name="monkeyOps"
-            >
-              {monkeyValues}
-            </select>
-          </div>
-        </div>
-      </div>
+        )}
+      </Subscribe>
     )
   }
 }
