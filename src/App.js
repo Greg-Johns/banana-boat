@@ -14,8 +14,6 @@ class App extends Component {
     };
   }
 
-  // check localStorage
-
   render() {
     const boatCards = this.state.boatCount.map(num =>
       <BoatCard key={num} num={num} />
@@ -24,7 +22,7 @@ class App extends Component {
     return (
       <Provider>
         <Subscribe to={[BoatsContainer]}>
-          {counter => (
+          {boatLoad => (
             <div className="App">
               <header>
                 <div className='user'>
@@ -40,9 +38,9 @@ class App extends Component {
                 {boatCards}
                 <div className="split">
                   <p>
-                    {counter.state.totals.boats} boats<br />
-                    {counter.state.totals.people} people<br />
-                    {counter.state.totals.bananas} bananas
+                    {boatLoad.state.totals.boats} boats<br />
+                    {boatLoad.state.totals.people} people<br />
+                    {boatLoad.state.totals.bananas} bananas
                   </p>
                   <button>Rent Now</button>
                 </div>
