@@ -34,7 +34,6 @@ const s = {
     border: `8px solid ${disabledBlue}`,
     width: `140px`,
     margin: `10px`,
-    borderRadius: `6px`,
     borderRadius: `8px`,
     filter: 'drop-shadow(-1px 1px 1px #31788E)'
   },
@@ -53,10 +52,10 @@ const s = {
 class BoatCard extends Component {
   constructor(props) {
     super(props);
-    // Set range values for people & monkey options
+    // Set range values for people & banana options
     this.state = {
       peopleRange: [1,2],
-      monkeyRange: [0,1,2,3,4]
+      bananaRange: [0,1,2,3,4]
     };
   }
 
@@ -72,7 +71,7 @@ class BoatCard extends Component {
     const peopleValues = this.state.peopleRange.map((num) =>
       <option key={num} value={num}>{num}</option>
     );
-    const monkeyValues = this.state.monkeyRange.map((num) =>
+    const bananaValues = this.state.bananaRange.map((num) =>
       <option key={num} value={num}>{num}</option>
     );
 
@@ -82,16 +81,16 @@ class BoatCard extends Component {
       <Subscribe to={[BoatsContainer]}>
         {counter => (
           <div style={counter.state.boats[boatNum].enabled
-          ? s.boatEnabled
-          : s.boatDisabled}
-        >
+            ? s.boatEnabled
+            : s.boatDisabled}
+          >
             <input
               style={(boatNum === 0) ? {display: "none"} : {display: "inline"}}
               type="checkbox"
               checked={counter.state.boats[boatNum].enabled}
               onChange={() =>
                 counter.state.boats[boatNum].enabled
-                ? counter.dissableBoats(boatNum)
+                ? counter.disableBoats(boatNum)
                 : counter.enableBoats(boatNum)
               } />
             <h6>Boat {boatNum + 1}</h6>
@@ -112,14 +111,14 @@ class BoatCard extends Component {
                 </select>
               </div>
               <div>
-                <label style={s.label}>Monkeys:</label>
+                <label style={s.label}>bananas:</label>
                 <select
                   disabled={!counter.state.boats[boatNum].enabled}
-                  name="monkeyOps"
-                  value={counter.state.boats[boatNum].monkeyCount}
-                  onChange={(e) => counter.setMonkeyCount(boatNum, e.target.value)}
+                  name="bananaOps"
+                  value={counter.state.boats[boatNum].bananaCount}
+                  onChange={(e) => counter.setBananaCount(boatNum, e.target.value)}
                 >
-                  {monkeyValues}
+                  {bananaValues}
                 </select>
               </div>
             </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BoatCard from './BoatCard';
 import { Provider } from 'unstated';
+import { Subscribe } from 'unstated';
+import BoatsContainer from './BoatsContainer';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +14,8 @@ class App extends Component {
     };
   }
 
+  // check localStorage
+
   render() {
     const boatCards = this.state.boatCount.map(num =>
       <BoatCard key={num} num={num} />
@@ -19,27 +23,37 @@ class App extends Component {
 
     return (
       <Provider>
-        <div className="App">
-          <header>
-            <div className='user'>
-              <span>Jane</span>
+        <Subscribe to={[BoatsContainer]}>
+          {counter => (
+            <div className="App">
+              <header>
+                <div className='user'>
+                  <span>Jane</span>
+                </div>
+                <h2>- Bob's -</h2>
+                <h1>Banana Boat</h1>
+                <h2>- Rentals -</h2>
+                <img alt="banana" className="header-pic" src="./assets/banana.png" />
+              </header>
+              <div className="content">
+                <p>Welcome back Jane</p>
+                {boatCards}
+                <div className="split">
+                  <p>
+                    {counter.state.totals.boats} boats<br />
+                    {counter.state.totals.people} people<br />
+                    {counter.state.totals.bananas} bananas
+                  </p>
+                  <button>Rent Now</button>
+                </div>
+              </div>
+              <footer>
+                <small> Brought to you by: </small>
+                <p><span role="img" aria-label="banana">🍌</span> Bananas <span role="img" aria-label="banana">🍌</span></p>
+              </footer>
             </div>
-            <h2>- Bob's -</h2>
-            <h1>Banana Boat</h1>
-            <h2>- Rentals -</h2>
-            <img alt="banana" className="header-pic" src="./assets/banana.png" />
-          </header>
-          <div className="content">
-            <p>Welcome back Jane</p>
-            {boatCards}
-            <p>Select the number of boats and passengers for your party.</p>
-            <button>Rent Now</button>
-          </div>
-          <footer>
-            <small> Brought to you by: </small>
-            <p><span role="img" aria-label="banana">🍌</span> Bananas <span role="img" aria-label="banana">🍌</span></p>
-          </footer>
-        </div>
+          )}
+        </Subscribe>
       </Provider>
     );
   }
