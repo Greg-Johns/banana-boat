@@ -28,26 +28,32 @@ class App extends Component {
                 <div className='user'>
                   <span>Jane</span>
                 </div>
-                <h2>- Bob's -</h2>
-                <h1>Banana Boat</h1>
-                <h2>- Rentals -</h2>
+                <div className="logo">
+                  <h2>- Bob's -</h2>
+                  <h1>Banana Boat</h1>
+                  <h2>- Rentals -</h2>
+                </div>
                 <img alt="banana" className="header-pic" src="./assets/banana.png" />
               </header>
               <div className="content">
-                <p>Welcome back Jane</p>
+                <p>
+                  Rent up to four banana boats. Each boat can have up to six people.
+                  Bob's Banana Boat Rental's will also provide fresh banana's for your
+                  hungry riders so just let us know how many bananas you think your party will need.
+                </p>
                 {boatCards}
                 <div className="split">
                   <p>
-                    {boatLoad.state.totals.boats} boats<br />
-                    {boatLoad.state.totals.people} people<br />
-                    {boatLoad.state.totals.bananas} bananas
+                    {boatLoad.state.totals.boats} Boats<br />
+                    {boatLoad.state.totals.people} People<br />
+                    {boatLoad.state.totals.bananas} Bananas
                   </p>
-                  <button>Rent Now</button>
+                  <button onClick={() => {boatLoad.clear()}}>Rent Now</button>
                 </div>
               </div>
               <footer>
-                <small> Brought to you by: </small>
-                <p><span role="img" aria-label="banana">🍌</span> Bananas <span role="img" aria-label="banana">🍌</span></p>
+                <small> Please don't feed bananas to </small>
+                <h5><span role="img" aria-label="sea monkey">🐒</span> Sea Monkeys <span role="img" aria-label="sea monkey">🐒</span></h5>
               </footer>
             </div>
           )}

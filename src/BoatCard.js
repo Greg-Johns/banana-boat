@@ -70,7 +70,7 @@ class BoatCard extends Component {
     super(props);
     // Set range values for people & banana options
     this.state = {
-      peopleRange: [1,2]
+      peopleRange: [1,2,3,4,5,6]
     };
   }
 
@@ -123,7 +123,7 @@ class BoatCard extends Component {
                 </select>
               </div>
               <div>
-                <label style={s.label}>bananas:</label>
+                <label style={s.label}>Bananas:</label>
                 <input
                   disabled={!boatLoad.state.boats[boatNum].enabled}
                   style={
