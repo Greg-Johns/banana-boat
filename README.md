@@ -32,7 +32,58 @@ Subscribers are components that take a `to` render prop to pass state and method
 
 With that, let's turn back to our banana boat app and set up a BoatsContainer for our application state.
 
-BoatsContainer code
+```
+<!-- BoatsContainer.js -->
+
+import { Container } from 'unstated';
+
+class BoatsContainer extends Container {
+  constructor() {
+    super();
+    // Hydrate Global state from localStorage if available
+    localStorage.getItem('boats') && localStorage.getItem('totals')
+      ? this.setState({
+          boats: JSON.parse(localStorage.getItem('boats')),
+          totals: JSON.parse(localStorage.getItem('totals'))
+        })
+      : console.log("localStorage empty");
+    // Else start fresh
+    this.state = {
+      boats: [
+        {
+          enabled: true,
+          peopleCount: 1,
+          bananaCount: 0
+        }, ...
+      ],
+      totals: {
+        boats: 1,
+        people: 1,
+        bananas: 0
+      }
+    }
+  };
+
+  setPeopleCount = async (boatNum, val) => {
+    ...
+  }
+
+  setBananaCount = async (boatNum, val) => {
+    ...
+  }
+
+  disableBoats = async (boatNum) => {
+    ...
+  }
+
+  enableBoats = async (boatNum) => {
+    ...
+  }
+
+  calcTotals = async () => {
+    ...
+  }
+```
 
 This give us a boats array where each item in the array has a boolean flag for enabled, along with a peopleCount and bananaCount property. I've added methods for setting the count on each boats people/bananas, enabling/disabling a boat and one for calculating the totals of all boats. We also need to persist the state on browser refresh so along with setting the state our methods also will save to the browsers localStorage. That way when the component is instantiated we can check if localStorage has our state and just hydrate our app state to that or if not then set to our defaults.
 

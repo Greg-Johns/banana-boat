@@ -115,7 +115,7 @@ class BoatsContainer extends Container {
     localStorage.setItem("totals", JSON.stringify(totals));
   }
 
-  // Reset function
+  // Reset function for demo purposes
   clear = () => {
     localStorage.removeItem("boats");
     localStorage.removeItem("totals");
