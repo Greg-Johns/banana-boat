@@ -1,4 +1,4 @@
-# Banana Boat
+# Banana Boat Rentals
 
 ## Using [Unstated](https://github.com/jamiebuilds/unstated) for managing state in React apps
 
