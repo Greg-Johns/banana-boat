@@ -22,6 +22,7 @@ From the docs:
 `Container is a very simple class which is meant to look just like React.Component but with only the state-related bits: this.state and this.setState`
 
 `setState() in Container mimics React’s setState() method as closely as possible.`
+
 So calling setState() in the Container will cause any component subscribed to re-render. One refreshing difference is Unstated's setState() returns a promise so you can use `async` and `await` in your update methods.
 
 ### Providers
