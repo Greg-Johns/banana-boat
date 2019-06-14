@@ -8,7 +8,7 @@ Let's say your client 'Bob' want's you to build a bannana boat rental app. Your 
 
 Getting past the corny graphics the UI shows the user 'Jane' 4 similar looking controls. One of them is active while the other have a checkBox for activation. For each 'active' boat control Jane can select up to 6 people as well as input the number of bananas each boat will take.
 
-Right, well. We'll need a reusable stateful Boat component to keep track of if the boat is selected and if so how many people/bananas the user is planing for. Notice the 'if' in that last sentence, that means we'll need some component logic to determine behavior, in this case disabling inputs and changing some CSS properties and by 'keep track of' means the components local state.
+So we'll need a reusable stateful Boat component to keep track of if the boat is selected and if so how many people/bananas the user is planing for. Notice the 'if' in that last sentence, that means we'll need some component logic to determine behavior, in this case disabling inputs and changing some CSS properties and by 'keep track of' means the components local state.
 
 We'll also need to keep application/global state on all the Boat components and their local state. There are a lot of solutions and patterns for managing global state in React apps but for the sake of this app we'll use one put out from Jamie
 Builds that uses React's context API to make for a simple state management solution that extends on React's own setState method.
