@@ -1,5 +1,5 @@
 # Banana Boat
-
+ 
 ## Using [Unstated](https://github.com/jamiebuilds/unstated) for managing state in React apps
 
 Let's say your client 'Bob' want's you to build a bannana boat rental app. Your into React so you ```creact-react-app bannana-boat``` and take a look at the mockup the UX department sent over.
