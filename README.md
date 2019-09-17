@@ -128,3 +128,7 @@ Launches the test runner in the interactive watch mode.<br>
 Builds the app for production to the `build` folder.
 
 Thanks for checking this repo out and let me know if you have any questions, sugestions or comments.
+
+## Todo
+- Add some type checking
+- Tests
