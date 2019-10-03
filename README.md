@@ -1,5 +1,6 @@
 # Banana Boat
- 
+
+
 ## Using [Unstated](https://github.com/jamiebuilds/unstated) for managing state in React apps
 
 Let's say your client 'Bob' want's you to build a bannana boat rental app. Your into React so you ```creact-react-app bannana-boat``` and take a look at the mockup the UX department sent over.
@@ -10,8 +11,7 @@ Getting past the corny graphics the UI shows the user 'Jane' 4 similar looking c
 
 So we'll need a reusable stateful Boat component to keep track of if the boat is selected and if so how many people/bananas the user is planing for. Notice the 'if' in that last sentence, that means we'll need some component logic to determine behavior, in this case disabling inputs and changing some CSS properties and by 'keep track of' means the components local state.
 
-We'll also need to keep application/global state on all the Boat components and their local state. There are a lot of solutions and patterns for managing global state in React apps but for the sake of this app we'll use one put out from Jamie
-Builds that uses React's context API to make for a simple state management solution that extends on React's own setState method.
+We'll also need to keep application/global state on all the Boat components and their local state. There are a lot of solutions and patterns for managing global state in React apps but for the sake of this app we'll use one put out from Jamie Builds that uses React's context API to make for a simple state management solution that extends on React's own setState method.
 
 Unstated gives use three components for working with application state, Containers, Providers, and Subscribers.
 

@@ -5,6 +5,8 @@ import { Subscribe } from 'unstated';
 import BoatsContainer from './BoatsContainer';
 import './App.css';
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ class App extends Component {
                 </div>
               </div>
               <footer>
-                <small> Please don't feed bananas to </small>
+                <small>Brought to you by the</small>
                 <h5><span role="img" aria-label="sea monkey">🐒</span> Sea Monkeys <span role="img" aria-label="sea monkey">🐒</span></h5>
               </footer>
             </div>

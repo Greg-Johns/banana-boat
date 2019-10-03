@@ -11,6 +11,9 @@ class BoatsContainer extends Container {
         })
       : console.log("localStorage empty");
     // Else start fresh
+// TODOs
+// put in some JsDocs
+    // DO SOMETHING ELSE WITH THIS!!!
     this.state = {
       boats: [
         {
