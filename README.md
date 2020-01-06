@@ -132,3 +132,4 @@ Thanks for checking this repo out and let me know if you have any questions, sug
 ## Todo
 - Add some type checking
 - Tests
+- Rework
