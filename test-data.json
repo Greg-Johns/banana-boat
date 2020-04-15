@@ -1,0 +1,12 @@
+{
+  "_comment_":"This is a test smart contract's JSON",
+  "rentData": {
+    "_comment_":" Test by Greg Johns for smartcontract.com",
+    "tenant_id":"7d03bbf",
+    "landlord_id":"cc7f1b1",
+    "time":1586968245,
+    "rent":222,
+    "duration":
+    "7 months"
+  }
+}
